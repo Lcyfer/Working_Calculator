@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calcu.css">
+</head>
+<body>
+    <form name="cals">
+        <div>
+            <input type="text" name="aa" id="disp"disabled>
+        </div>
+        <div class="a">
+            <input type="button" value="√"onclick="roos()" >
+            <input type="button" value="abs" onclick="absolute()">
+           <input type="button" value="C" onclick="c()">
+        </div>
+        <div class="b">
+            <input type="button" value="Del" onclick="del()">
+          
+        </div>
+        <div class="a">
+            <input type="button" value="x²" onclick="sq()">
+           <input type="button" value="x³" onclick="cube()">
+            <input type="button" value="%" onclick="perc()">
+
+            
+        </div>
+        <div>
+            <input type="button" value="1" onclick="gets(1)">
+            <input type="button" value="2" onclick="gets(2)">
+            <input type="button" value="3" onclick="gets(3)">
+        </div>
+        <div>
+            <input type="button" value="4" onclick="gets(4)">
+            <input type="button" value="5" onclick="gets(5)">
+            <input type="button" value="6" onclick="gets(6)">
+        </div>
+        <div>
+            <input type="button" value="7" onclick="gets(7)">
+            <input type="button" value="8" onclick="gets(8)">
+            <input type="button" value="9" onclick="gets(9)">
+        </div>
+        <div>
+            <input type="button" value="0" onclick="gets(0)">
+            <input type="button" value="00" onclick="gets('00')">
+            <input type="button" value="." onclick="gets('.')">
+        </div>
+        <div class="g">
+            <input class="it" type="button" value="/" onclick="operator('/')">
+            <input type="button" value="*" onclick="operator('*')">
+            <input type="button" value="-" onclick="operator('-')">
+            <input type="button" value="+" onclick="operator('+')">
+            <input type="button" value="=" onclick="equal()">
+        </div>
+    </form>
+  <script>
+   let numb="";
+   let oper="";
+   function gets(no){
+     numb+=no;
+     document.getElementById('disp').value=numb;
+   }
+   function operator(sign){
+     oper=sign;
+     numb+=sign;
+     document.getElementById('disp').value=numb;
+   }
+   function c(){
+     numb="";
+     oper="";
+     document.getElementById('disp').value='';
+   }
+   function equal(){
+     const result=eval(numb);
+     document.getElementById('disp').value=result;
+     numb=result.toString();
+     oper='';
+   }
+   function del(){
+     numb=numb.slice(0,-1)
+     document.getElementById('disp').value=numb;
+   }
+   function perc(){
+     const v1=numb/100;
+     document.getElementById('disp').value=v1;
+     numb=v1.toString();
+     oper='';
+   }
+   function sq(){
+     const squared=numb*numb;
+     document.getElementById('disp').value=squared;
+     numb=squared.toString();
+     oper='';
+   }
+function cube(){
+     const cube=numb*numb*numb;
+     document.getElementById('disp').value=cube;
+     numb=cube.toString();
+     oper='';
+   }
+function absolute(){
+     const absolute=Math.abs(numb);
+     document.getElementById('disp').value=absolute;
+     numb=absolute.toString();
+     oper='';
+   }
+function roos(){
+     const absolute=Math.sqrt(numb);
+     document.getElementById('disp').value=absolute;
+     numb=absolute.toString();
+     oper='';
+   }
+  </script>
+</body>
+</html>
